@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thea Emanuelsson - Digital Marketing Specialist Student</title>
+    <!-- Google Fonts för redaktionell och professionell typografi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="img/styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="sidhuvud">
+        <div class="sidhuvud-innehall">
+            <div>
+                <h1>Thea Emanuelsson</h1>
+                <p class="roll">Digital Marketing Specialist student i Göteborg</p>
+            </div>
+            <!-- Knapp för mörkt läge (id="tema" för script-stöd och tillgänglighet) -->
+            <button id="tema" class="tema-knapp" aria-label="Växla mörkt och ljust läge"
+                onclick="document.body.classList.toggle('morkt'); this.textContent = document.body.classList.contains('morkt') ? 'Light mode' : 'Dark mode';">Dark
+                mode</button>
+        </div>
+        <nav aria-label="Huvudmeny">
+            <ul>
+                <li><a href="#om">Om mig</a></li>
+                <li><a href="#Utbildning">Utbildning</a></li>
+                <li><a href="#Erfarenheter">Erfarenheter</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Digital Marketing Specialist student på IHM Business School i Göteborg</h2>
+            <a href="#kontakt" class="knapp">Maila mig</a>
+        </section>
+
+        <section id="om">
+            <h2>Om mig</h2>
+            <div class="om-innehall">
+                <div class="polaroid-ram">
+                    <img src="Inspo/C9738A81-3E73-4513-A63E-7D945CDD93F3.jpeg" alt="Thea Emanuelsson" width="400"
+                        height="400">
+                </div>
+                <div class="om-text">
+                    <h3>Fakta om mig</h3>
+                    <p>Jag heter Thea Emanuelsson och är 23 år gammal. Jag har ett stor intresse för sociala medier,
+                        digital kommunikation och marknadsföring. Jag är kreativ och nyfiken och har en stark vilja att
+                        utvecklas. Utöver det är jag lösningsorienterad och gillar att arbeta tillsammans för att nå
+                        gemensamma mål.
+                </div>
+            </div>
+        </section>
+
+        <section id="Utbildning">
+            <h2>Utbildning</h2>
+            <h4>IHM Business School, 2026-nutid</h4>
+            <p>Digital Marketing Specialist</p>
+            <ul>
+                <li>Marknasföring</li>
+                <li>Karriärsplanering</li>
+                <li>AI & Tech</li>
+                <li>Sökmotoroptimering</li>
+                <li>Paid media - social SEM</li>
+                <li>Content och influnecer marketing</li>
+                <li>Tracking och digital analys</li>
+            </ul>
+
+            <h4>Kurs Komvux, 2025, 10 veckor</h4>
+            <p>Grafisk kommunikation</p>
+
+            <h4>Affärshögskolan, 2023-2025</h4>
+            <p>Redovisningsekonom</p>
+
+            <h4>Elof Lindälv gymnasium, 2019-2022</h4>
+            <p>Ekonomiprogrammet</p>
+
+
+            <section id="Erfarenheter">
+                <h2>Erfarenheter</h2>
+                <h4>LIA Hedin Automotive - Ekonomi, 2025</h4>
+                <p>Under min praktik på 18 veckor fick jag arbeta självständigt och i grupp. Jag fick vara med i den
+                    ekonomiska processen i ett företag. Jag satt även i några veckor på Lön för att få en ett annat
+                    perspektiv och en annan del av ekonomin.</p>
+                <h4>Academedia - Ekonomi, 2024</h4>
+                <p>Under min praktik på 10 veckor fick jag arbeta mycket självständigt med kundreskontra,
+                    leverantörreskonta samt med redovisning och budgetering</p>
+                <h4>UF Företag, 2021-2022</h4>
+                <p>Jag tillsammans med tre andra gjorde necessärer av återvunnet denim tyg. Tillsammans fick vi arbeta i
+                    för -och motgångar. Jag fick vara från uppstart till avveckling.</p>
+            </section>
+
+            <section id="kontakt">
+                <h2>Kontakt</h2>
+                <p>Vill du veta mer? Mejla mig eller hör av dig på LinkedIn.</p>
+                <p>
+                    <a href="mailto:theaemanuelsson@icloud.com">theaemanuelsson@icloud.com</a>
+                    <button id="kopiera" class="knapp-liten" type="button">Kopiera mejl</button>
+                </p>
+                <p><a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">Thea Emanuelsson på
+                        LinkedIn</a></p>
+            </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Thea Emanuelsson · Byggd för hand med HTML, CSS och JavaScript</p>
+    </footer>
+</body>
+
+</html>

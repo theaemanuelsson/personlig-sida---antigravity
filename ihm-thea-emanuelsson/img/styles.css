@@ -1,0 +1,530 @@
+/* ==========================================================================
+   1 · BOX-MODELLEN
+   Bredden och höjden gäller hela lådan (inklusive vaddering och ram)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2 · VARUMÄRKET SOM VARIABLER
+   Färgpalett, typografi och mått inspirerade av Theas personliga varumärke
+   och inspirationsbilderna (bordeaux, varm kräm och champagne).
+   ========================================================================== */
+:root {
+    /* Färger i ljust läge */
+    --text: #20171a;
+    /* Mörk dämpad kol/brun för bästa läsbarhet (kontrast > 13:1) */
+    --text-dampad: #605157;
+    /* Mjukare text för sekundär information (kontrast > 4,7:1) */
+    --yta: #faf7f2;
+    /* Varm havremjölk/linne-kräm som huvudbakgrund */
+    --yta-2: #f2ebe0;
+    /* Mjuk ljusbeige för sidhuvud och fotnot */
+    --yta-kort: #ffffff;
+    /* Ren vit för kort och polaroid-ramar */
+    --primar: #4e1726;
+    /* Djup bordeaux/vinröd för rubriker och identitet (kontrast > 12:1) */
+    --primar-hover: #360f1a;
+    /* Mörkare vinröd vid hovring */
+    --accent: #d8c2a7;
+    /* Varm champagne/sand för knappar */
+    --accent-hover: #c7af93;
+    /* Något mörkare sand vid hovring */
+    --accent-text: #20171a;
+    /* Kontrastrik mörk text på knappar (kontrast > 9:1) */
+    --kant: #e5ded2;
+    /* Tunn och elegant linjefärg */
+    --skugga: 0 10px 25px rgba(78, 23, 38, 0.07);
+    /* Mjuk varm skugga för djup */
+
+    /* Typografi via Google Fonts */
+    --typsnitt-rubrik: "Cormorant Garamond", Georgia, serif;
+    --typsnitt-brodtext: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+    /* Luft och rundning */
+    --luft: 1rem;
+    --radie: 14px;
+    --radie-rund: 9999px;
+    /* Skapar eleganta runda "pill"-knappar */
+}
+
+/* ==========================================================================
+   3 · GRUNDSTIL
+   Sidans bas, typografi och allmänna element
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--text);
+    background-color: var(--yta);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--typsnitt-rubrik);
+    font-weight: 700;
+    /* fetstil */
+    line-height: 1.2;
+    color: #4e1726;
+    /* burgundy */
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 2.25rem;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.85rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #5F021F; /* requested dark burgundy */
+    font-weight: 700;
+}
+h4 {
+    color: #5F021F; /* requested dark burgundy */
+    font-weight: 700;
+}
+
+p {
+    max-width: 65ch;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+a {
+    color: var(--primar);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primar-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   4 · SIDHUVUD, NAVIGATION OCH TEMAKNAPP
+   Stilrent sidhuvud med flexbox och temaväxlare
+   ========================================================================== */
+.sidhuvud {
+    display: flex;
+    flex-direction: column;
+    gap: var(--luft);
+    padding: calc(var(--luft) * 1.5);
+    background-color: #4e1726;
+    /* burgundy */
+    color: #f7efe6;
+    /* crème */
+    border-bottom: 1px solid var(--kant);
+}
+
+.sidhuvud-innehall {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.sidhuvud h1,
+.sidhuvud button,
+.sidhuvud a {
+    color: #f7efe6;
+}
+
+.roll {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--yta-2);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: var(--radie-rund);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: rgba(78, 23, 38, 0.08);
+    color: var(--primar);
+    text-decoration: none;
+}
+
+/* Temaknappen för ljust/mörkt läge */
+.tema-knapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.85rem;
+    background-color: var(--primar);
+    color: var(--yta-2);
+    border: 1px solid var(--kant);
+    border-radius: var(--radie-rund);
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: var(--skugga);
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+body.morkt .tema-knapp {
+    background-color: var(--yta-2);
+    color: var(--primar);
+}
+
+.tema-knapp:hover {
+    transform: scale(1.06);
+    border-color: var(--primar);
+}
+
+body button {
+    border: 2px solid var(--primar);
+}
+
+/* ==========================================================================
+   5 · INNEHÅLLSYTAN OCH SEKTIONER
+   Luftig struktur och redaktionell disposition
+   ========================================================================== */
+main {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 calc(var(--luft) * 1.5);
+}
+
+section {
+    padding: calc(var(--luft) * 3) 0;
+    border-bottom: 1px solid var(--kant);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* Hero-sektion */
+.hero {
+    padding-top: calc(var(--luft) * 4);
+    padding-bottom: calc(var(--luft) * 4);
+}
+
+.hero h2 {
+    font-size: 2.15rem;
+    line-height: 1.2;
+    max-width: 24ch;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-dampad);
+    margin-bottom: 2rem;
+}
+
+/* Om mig-sektion med redaktionell polaroid-känsla */
+.om-innehall {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--luft) * 2);
+}
+
+.polaroid-ram {
+    background-color: var(--yta-kort);
+    padding: 0.85rem;
+    border: 1px solid var(--kant);
+    border-radius: var(--radie);
+    box-shadow: var(--skugga);
+    max-width: 360px;
+    margin-bottom: var(--luft);
+}
+
+.polaroid-ram img {
+    border-radius: calc(var(--radie) - 4px);
+    border: 6px solid var(--primar);
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   6 · KORT I ETT RUTNÄT (Kurser och egenskaper)
+   Inspirerat av studio-/byråkänslan med tydliga informationskort
+   ========================================================================== */
+.rutnat {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--luft) * 1.5);
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.kort {
+    background-color: var(--yta-kort);
+    padding: calc(var(--luft) * 1.5);
+    border: 1px solid var(--kant);
+    border-radius: var(--radie);
+    box-shadow: var(--skugga);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.kort:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 14px 28px rgba(78, 23, 38, 0.1);
+}
+
+.kort h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.kort p {
+    font-size: 0.95rem;
+    color: var(--text-dampad);
+    margin-bottom: 0;
+}
+
+/* Egenskaper i en stilren lista */
+.egenskaper-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.egenskap-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 1.25rem;
+    background-color: var(--yta-kort);
+    border: 1px solid var(--kant);
+    border-radius: var(--radie-rund);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: var(--skugga);
+}
+
+/* Hjälpklass för JavaScript "visa mer" */
+.gomd {
+    display: none !important;
+}
+
+/* ==========================================================================
+   7 · KNAPPAR, INTERAKTIVITET OCH FOKUS
+   Tillgängliga knappar och tydlig tangentbordsnavigering
+   ========================================================================== */
+.knapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.85rem;
+    background-color: var(--primar);
+    color: var(--yta-2);
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radie-rund);
+    box-shadow: var(--skugga);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.knapp:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(78, 23, 38, 0.14);
+    text-decoration: none;
+    color: var(--accent-text);
+}
+
+.knapp-sekundar {
+    background-color: transparent;
+    color: var(--primar);
+    border: 1px solid var(--primar);
+    box-shadow: none;
+    margin-top: 1rem;
+}
+
+.knapp-sekundar:hover {
+    background-color: rgba(78, 23, 38, 0.08);
+    color: var(--primar-hover);
+}
+
+.knapp-liten {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background-color: var(--yta-kort);
+    color: var(--text);
+    border: 1px solid var(--kant);
+    border-radius: var(--radie-rund);
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.knapp-liten:hover {
+    border-color: var(--primar);
+    background-color: var(--yta-2);
+}
+
+/* Fokusram för god tillgänglighet */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--primar);
+    outline-offset: 3px;
+}
+
+/* Sidfot */
+footer {
+    padding: calc(var(--luft) * 3) calc(var(--luft) * 1.5);
+    text-align: center;
+    background-color: #4e1726;
+    /* burgundy */
+    border-top: 1px solid var(--kant);
+    color: #f7efe6;
+    /* crème */
+    font-size: 0.95rem;
+}
+
+footer p {
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   8 · STÖRRE SKÄRMAR (RESPONSIVITET)
+   Skalning från mobil till surfplatta och datorskärm
+   ========================================================================== */
+@media (min-width: 48rem) {
+    .sidhuvud {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: calc(var(--luft) * 1.5) calc(var(--luft) * 3);
+    }
+
+    .sidhuvud-innehall {
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    .hero h2 {
+        font-size: 2.65rem;
+    }
+
+    .om-innehall {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .polaroid-ram {
+        flex: 0 0 320px;
+        margin-bottom: 0;
+    }
+
+    .rutnat {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 64rem) {
+    .rutnat {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==========================================================================
+   9 · MÖRKT LÄGE
+   Aktiveras när klassen .morkt finns på <body>
+   ========================================================================== */
+body.morkt {
+    /* Nya färgvärden i mörkt läge */
+    --text: #f7efe6;
+    /* Ljus varm krämvit för god kontrast (> 13:1) */
+    --text-dampad: #c2b1a8;
+    /* Ljusare dämpad text (kontrast > 5:1) */
+    --yta: #170d11;
+    /* Djup vinröd/espresso nattbakgrund */
+    --yta-2: #211319;
+    /* Något ljusare vinröd yta för sidhuvud och fotnot */
+    --yta-kort: #2a1820;
+    /* Varma bordeaux-kort */
+    --primar: #f2cad0;
+    /* Mjuk champagne-rosé för rubriker (kontrast > 10:1) */
+    --primar-hover: #ffffff;
+    /* Ren vit vid hovring */
+    --accent: #d8c2a7;
+    /* Champagne/sand för knappar */
+    --accent-hover: #e5d4be;
+    /* Ljusare champagne vid hovring */
+    --accent-text: #170d11;
+    /* Mörk text på accentknapp i mörkt läge */
+    --kant: #3d232e;
+    /* Mörkare vinröd linjefärg */
+    --skugga: 0 10px 25px rgba(0, 0, 0, 0.45);
+    /* Djupare skugga för mörkt läge */
+}
+
+body.morkt nav a:hover {
+    background-color: rgba(242, 202, 208, 0.12);
+}
+
+body.morkt .knapp-sekundar {
+    color: var(--primar);
+    border-color: var(--primar);
+}
+
+body.morkt .knapp-sekundar:hover {
+    background-color: rgba(242, 202, 208, 0.12);
+}
