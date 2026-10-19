@@ -33,4 +33,16 @@ if (kopiera) {
     kopiera.addEventListener("click", kopieraMail);
 }
 
+// Bädda in kontaktformuläret från HubSpot på sidan.
+const hubspotForm = document.querySelector("#hubspot-form");
+
+if (hubspotForm && window.hbspt?.forms) {
+    window.hbspt.forms.create({
+        region: "eu1",
+        portalId: "149565936",
+        formId: "59181a08-2ffb-4f09-9f5f-41db74480aa5",
+        target: "#hubspot-form"
+    });
+}
+
 
