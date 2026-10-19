@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1050" viewBox="0 0 1400 1050">
+<rect width="1400" height="1050" fill="#f4f1eb"/>
+<style>
+.title{font:700 30px Arial,sans-serif;fill:#481827}.label{font:700 15px Arial,sans-serif;fill:#7b0b2e;letter-spacing:1.4px}.school{font:700 17px Arial,sans-serif;fill:#72102e}.body{font:17px Arial,sans-serif;fill:#282326}.small{font:14px Arial,sans-serif;fill:#77706c}.rule{stroke:#ded5c8;stroke-width:2}.panel{fill:#fffdf9;stroke:#e7dfd4;stroke-width:2}
+</style>
+<text x="60" y="62" class="title">Fyra visuella sätt att strukturera utbildning</text>
+<!-- cards -->
+<rect x="50" y="100" width="630" height="420" rx="10" class="panel"/><rect x="720" y="100" width="630" height="420" rx="10" class="panel"/>
+<rect x="50" y="550" width="630" height="420" rx="10" class="panel"/><rect x="720" y="550" width="630" height="420" rx="10" class="panel"/>
+<!-- 1 -->
+<text x="85" y="145" class="label">1 · KLASSISK, OMVÄND KRONOLOGI</text><text x="85" y="192" class="title" style="font-size:27px">Utbildning</text><line x1="85" y1="211" x2="635" y2="211" class="rule"/>
+<text x="85" y="248" class="school">IHM Business School</text><text x="535" y="248" class="small">2026–nu</text><text x="85" y="274" class="body">Digital Marketing Specialist</text>
+<text x="85" y="321" class="school">Komvux</text><text x="535" y="321" class="small">2025</text><text x="85" y="347" class="body">Grafisk kommunikation · 10 veckor</text>
+<text x="85" y="394" class="school">Affärshögskolan</text><text x="535" y="394" class="small">2023–2025</text><text x="85" y="420" class="body">Redovisningsekonom</text>
+<text x="85" y="467" class="school">Elof Lindälv gymnasium</text><text x="535" y="467" class="small">2019–2022</text><text x="85" y="493" class="body">Ekonomiprogrammet</text>
+<!-- 2 -->
+<text x="755" y="145" class="label">2 · TIDSLINJE</text><text x="755" y="192" class="title" style="font-size:27px">Utbildning</text><line x1="790" y1="225" x2="790" y2="465" stroke="#c8a9a0" stroke-width="3"/>
+<circle cx="790" cy="242" r="8" fill="#7b0b2e"/><text x="820" y="239" class="school">2026–nu · IHM Business School</text><text x="820" y="265" class="body">Digital Marketing Specialist</text>
+<circle cx="790" cy="303" r="8" fill="#7b0b2e"/><text x="820" y="300" class="school">2025 · Komvux</text><text x="820" y="326" class="body">Grafisk kommunikation · 10 veckor</text>
+<circle cx="790" cy="364" r="8" fill="#7b0b2e"/><text x="820" y="361" class="school">2023–2025 · Affärshögskolan</text><text x="820" y="387" class="body">Redovisningsekonom</text>
+<circle cx="790" cy="425" r="8" fill="#7b0b2e"/><text x="820" y="422" class="school">2019–2022 · Elof Lindälv gymnasium</text><text x="820" y="448" class="body">Ekonomiprogrammet</text>
+<!-- 3 -->
+<text x="85" y="595" class="label">3 · KOMPAKT TVÅSPALT</text><text x="85" y="642" class="title" style="font-size:27px">Utbildning</text><line x1="85" y1="661" x2="635" y2="661" class="rule"/>
+<text x="85" y="706" class="small">2026–nu</text><text x="215" y="706" class="school">Digital Marketing Specialist</text><text x="215" y="731" class="body">IHM Business School</text><line x1="85" y1="750" x2="635" y2="750" class="rule"/>
+<text x="85" y="784" class="small">2025</text><text x="215" y="784" class="school">Grafisk kommunikation</text><text x="215" y="809" class="body">Komvux · 10 veckor</text><line x1="85" y1="828" x2="635" y2="828" class="rule"/>
+<text x="85" y="862" class="small">2023–2025</text><text x="215" y="862" class="school">Redovisningsekonom</text><text x="215" y="887" class="body">Affärshögskolan</text><line x1="85" y1="906" x2="635" y2="906" class="rule"/>
+<text x="85" y="940" class="small">2019–2022</text><text x="215" y="940" class="school">Ekonomiprogrammet</text><text x="215" y="965" class="body">Elof Lindälv gymnasium</text>
+<!-- 4 -->
+<text x="755" y="595" class="label">4 · PRIORITERA RELEVANS</text><text x="755" y="642" class="title" style="font-size:27px">Utbildning</text><rect x="755" y="673" width="550" height="115" rx="8" fill="#f7edf0"/>
+<text x="780" y="706" class="small">PÅGÅENDE</text><text x="780" y="738" class="school">Digital Marketing Specialist</text><text x="780" y="765" class="body">IHM Business School · 2026–nu</text>
+<text x="755" y="828" class="small" style="font-weight:bold;letter-spacing:1px">TIDIGARE UTBILDNING</text>
+<text x="755" y="865" class="school">Grafisk kommunikation</text><text x="755" y="890" class="body">Komvux · 2025 · 10 veckor</text>
+<text x="755" y="923" class="school">Redovisningsekonom</text><text x="755" y="948" class="body">Affärshögskolan · 2023–2025</text>
+<text x="755" y="976" class="small">Ekonomiprogrammet · Elof Lindälv · 2019–2022</text>
+</svg>

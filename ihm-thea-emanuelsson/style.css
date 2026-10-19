@@ -127,7 +127,9 @@ img {
     flex-direction: column;
     gap: var(--luft);
     padding: calc(var(--luft) * 1.5);
-    background-color: var(--yta-2);
+    background-color: #4e1726;
+    /* burgundy */
+    color: #ffffff;
     border-bottom: 1px solid var(--kant);
 }
 
@@ -138,13 +140,20 @@ img {
     gap: 1rem;
 }
 
+.sidhuvud h1,
+.sidhuvud button,
+.sidhuvud a,
+.sidhuvud .roll {
+    color: #ffffff;
+}
+
 .roll {
     margin: 0.25rem 0 0 0;
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--text-dampad);
+    color: #ffffff;
 }
 
 nav ul {
@@ -161,15 +170,15 @@ nav a {
     padding: 0.4rem 0.75rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--text);
+    color: #ffffff;
     text-decoration: none;
     border-radius: var(--radie-rund);
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 nav a:hover {
-    background-color: rgba(78, 23, 38, 0.08);
-    color: var(--primar);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -178,23 +187,28 @@ nav a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    padding: 0;
-    background-color: var(--yta-kort);
-    color: var(--text);
-    border: 1px solid var(--kant);
+    padding: 0.85rem 1.85rem;
+    background-color: var(--primar);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: var(--radie-rund);
-    font-size: 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
     box-shadow: var(--skugga);
     transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
     flex-shrink: 0;
 }
 
+body.morkt .tema-knapp {
+    background-color: var(--yta-2);
+    color: var(--primar);
+    border-color: var(--kant);
+}
+
 .tema-knapp:hover {
     transform: scale(1.06);
-    border-color: var(--primar);
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
 /* ==========================================================================
@@ -297,6 +311,206 @@ section:last-of-type {
     margin-bottom: 0;
 }
 
+/* ==========================================================================
+   6.1 · KOMPETENSER-GRID OCH KORT
+   Moderna kompetenskort med ikon, kategori-tagg och redaktionell layout
+   ========================================================================== */
+.kompetenser-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.kompetens-kort {
+    background-color: var(--yta-kort);
+    padding: 2rem 1.75rem;
+    border: 1px solid var(--kant);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(78, 23, 38, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.kompetens-kort:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
+    border-color: var(--accent);
+}
+
+.kompetens-ikon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--yta-2);
+    border-radius: 12px;
+    color: #4e1726;
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+}
+
+.kompetens-ikon svg {
+    display: block;
+}
+
+.kompetens-tagg {
+    display: inline-block;
+    margin-top: 1.25rem;
+    margin-bottom: 0.85rem;
+    padding: 0.3rem 0.85rem;
+    background-color: var(--yta-2);
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5c4742;
+    line-height: 1.3;
+}
+
+.kompetens-kort h3 {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #5F021F;
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+    letter-spacing: -0.01em;
+}
+
+.kompetens-kort p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-dampad);
+    margin: 0;
+}
+
+/* ==========================================================================
+   6.2 · ERFARENHETER-GRID OCH KORT
+   3 vertikala, balanserade erfarenhetskort inspirerade av 3-kolumnsdesignen
+   ========================================================================== */
+.erfarenheter-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.erfarenhet-kort {
+    background-color: var(--yta-kort);
+    padding: 2.25rem 1.85rem;
+    border: 1px solid var(--kant);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(78, 23, 38, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.erfarenhet-kort::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #5F021F;
+}
+
+.erfarenhet-kort:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
+    border-color: var(--accent);
+}
+
+.erfarenhet-kort h4 {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #5F021F;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.erfarenhet-kort p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-dampad);
+    margin: 0;
+}
+
+/* ==========================================================================
+   6.3 · UTBILDNING-GRID OCH KORT
+   Balanserade, strukturerade kort för utbildningar
+   ========================================================================== */
+.utbildning-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.utbildning-kort {
+    background-color: var(--yta-kort);
+    padding: 2rem 1.85rem;
+    border: 1px solid #5F021F;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(78, 23, 38, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.utbildning-kort::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #5F021F;
+}
+
+.utbildning-kort:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
+    border-color: var(--accent);
+}
+
+.utbildning-kort h4 {
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #5F021F;
+    margin-top: 0;
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.01em;
+}
+
+.utbildning-kort p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-dampad);
+    margin: 0;
+}
+
 /* Egenskaper i en stilren lista */
 .egenskaper-lista {
     display: flex;
@@ -386,11 +600,143 @@ section:last-of-type {
     background-color: var(--yta-2);
 }
 
-/* Fokusram för god tillgänglighet */
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--primar);
-    outline-offset: 3px;
+/* ==========================================================================
+   7.1 · KONTAKTFORMULÄR OCH KONTAKTSEKTION
+   Eleganta formulärfält med mjuka hörn och tydliga interaktioner
+   ========================================================================== */
+.kontakt-innehall {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.kontakt-form {
+    background-color: var(--yta-kort);
+    padding: 2rem;
+    border: 1px solid var(--kant);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(78, 23, 38, 0.04);
+}
+
+.form-grupp {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-grupp label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.obligatorisk {
+    color: #5F021F;
+    font-weight: 700;
+}
+
+.kontakt-form input,
+.kontakt-form textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text);
+    background-color: var(--yta);
+    border: 1px solid var(--kant);
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.kontakt-form input:focus,
+.kontakt-form textarea:focus {
+    outline: none;
+    border-color: var(--primar);
+    background-color: var(--yta-kort);
+    box-shadow: 0 0 0 3px rgba(78, 23, 38, 0.12);
+}
+
+.kontakt-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-status {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: none;
+}
+
+.form-status.synlig {
+    display: block;
+    padding: 0.85rem 1.15rem;
+    border-radius: 10px;
+}
+
+.form-status.framgang {
+    background-color: rgba(60, 118, 61, 0.12);
+    color: #2b542c;
+    border: 1px solid rgba(60, 118, 61, 0.25);
+}
+
+.kontakt-info {
+    background-color: var(--yta-kort);
+    padding: 2rem;
+    border: 1px solid var(--kant);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(78, 23, 38, 0.04);
+}
+
+.kontakt-info h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #5F021F;
+}
+
+.kontakt-lank-rad {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.kontakt-epost {
+    font-weight: 600;
+    color: var(--primar);
+    word-break: break-all;
+}
+
+.kontakt-linkedin {
+    font-weight: 600;
+    color: var(--primar);
+    display: inline-block;
+}
+
+/* Tunn burgundyfärgad linje runt innehållsrutor */
+.polaroid-ram,
+.kort,
+.kompetens-kort,
+.erfarenhet-kort,
+.utbildning-kort,
+.egenskap-chip,
+.kontakt-form,
+.kontakt-info {
+    border-color: #5F021F;
+}
+
+.kort:hover,
+.kompetens-kort:hover,
+.erfarenhet-kort:hover,
+.utbildning-kort:hover {
+    border-color: #5F021F;
 }
 
 /* Sidfot */
@@ -446,14 +792,40 @@ footer p {
         margin-bottom: 0;
     }
 
-    .rutnat {
+    .rutnat,
+    .kompetenser-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .erfarenheter-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .utbildning-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kontakt-innehall {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        align-items: start;
+        gap: 2.5rem;
     }
 }
 
 @media (min-width: 64rem) {
-    .rutnat {
+
+    .rutnat,
+    .kompetenser-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .erfarenheter-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .utbildning-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -500,4 +872,114 @@ body.morkt .knapp-sekundar {
 
 body.morkt .knapp-sekundar:hover {
     background-color: rgba(242, 202, 208, 0.12);
+}
+
+body.morkt .kompetens-kort {
+    background-color: var(--yta-kort);
+    border-color: var(--kant);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.morkt .kompetens-kort:hover {
+    border-color: var(--primar);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.morkt .kompetens-ikon {
+    background-color: rgba(242, 202, 208, 0.12);
+    color: var(--primar);
+}
+
+body.morkt .kompetens-tagg {
+    background-color: rgba(242, 202, 208, 0.12);
+    color: var(--primar);
+}
+
+body.morkt .kompetens-kort h3 {
+    color: var(--text);
+}
+
+body.morkt .kompetens-kort p {
+    color: var(--text-dampad);
+}
+
+body.morkt .erfarenhet-kort {
+    background-color: var(--yta-kort);
+    border-color: var(--kant);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.morkt .erfarenhet-kort::before {
+    background-color: var(--primar);
+}
+
+body.morkt .erfarenhet-kort:hover {
+    border-color: var(--primar);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.morkt .erfarenhet-kort h4 {
+    color: var(--primar);
+}
+
+body.morkt .erfarenhet-kort p {
+    color: var(--text-dampad);
+}
+
+body.morkt .utbildning-kort {
+    background-color: var(--yta-kort);
+    border-color: var(--kant);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.morkt .utbildning-kort::before {
+    background-color: var(--primar);
+}
+
+body.morkt .utbildning-kort:hover {
+    border-color: var(--primar);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.morkt .utbildning-kort h4 {
+    color: var(--primar);
+}
+
+body.morkt .utbildning-kort p {
+    color: var(--text-dampad);
+}
+
+body.morkt .kontakt-form,
+body.morkt .kontakt-info {
+    background-color: var(--yta-kort);
+    border-color: var(--kant);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.morkt .kontakt-form input,
+body.morkt .kontakt-form textarea {
+    background-color: var(--yta);
+    border-color: var(--kant);
+    color: var(--text);
+}
+
+body.morkt .kontakt-form input:focus,
+body.morkt .kontakt-form textarea:focus {
+    border-color: var(--primar);
+    background-color: var(--yta-kort);
+    box-shadow: 0 0 0 3px rgba(242, 202, 208, 0.15);
+}
+
+body.morkt .kontakt-info h3 {
+    color: var(--primar);
+}
+
+body.morkt .obligatorisk {
+    color: var(--primar);
+}
+
+body.morkt .form-status.framgang {
+    background-color: rgba(144, 238, 144, 0.15);
+    color: #a3e6a5;
+    border-color: rgba(144, 238, 144, 0.3);
 }
