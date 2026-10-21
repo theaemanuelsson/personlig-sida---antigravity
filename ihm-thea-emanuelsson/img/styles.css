@@ -1021,3 +1021,420 @@ body.morkt .form-status.framgang {
     color: #a3e6a5;
     border-color: rgba(144, 238, 144, 0.3);
 }
+
+/* Varmare redaktionell helhet, inspirerad av referensbildens vinröda
+   ytor, linnekräm och diskreta champagneaccenter. */
+:root {
+    --yta: #f4ede3;
+    --yta-2: #e9ddce;
+    --yta-kort: #fbf7f0;
+    --primar: #48151c;
+    --primar-hover: #2f0c12;
+    --accent: #d9c1a1;
+    --accent-hover: #c6a982;
+    --kant: #ddcdbb;
+    --skugga: 0 14px 34px rgba(53, 24, 20, 0.09);
+    --radie: 8px;
+}
+
+body {
+    background-image: radial-gradient(ellipse at 50% 0, rgba(255, 252, 246, .78), transparent 58%);
+}
+
+.sidhuvud {
+    padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
+    background: #3c1016;
+    border-bottom: 3px solid #b99a78;
+}
+
+.sidhuvud h1 {
+    color: #f8efe3;
+}
+
+.roll {
+    color: #e1cbb0;
+    letter-spacing: .12em;
+    font-size: .76rem;
+}
+
+nav ul {
+    gap: .3rem;
+}
+
+nav a {
+    border-radius: 3px;
+    font-size: .82rem;
+    letter-spacing: .025em;
+}
+
+.tema-knapp {
+    padding: .6rem 1rem;
+    border-radius: 3px;
+    background: transparent;
+    box-shadow: none;
+    font-size: .85rem;
+}
+
+main {
+    max-width: 74rem;
+    padding: 0 clamp(1rem, 4vw, 3.5rem);
+}
+
+section {
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(.25rem, 2vw, 1.5rem);
+    border-bottom-color: #d5c3ae;
+}
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    margin: 2rem 0 1rem;
+    padding: clamp(3rem, 8vw, 7rem) clamp(1.5rem, 7vw, 6rem);
+    overflow: hidden;
+    color: #f8efe3;
+    background: linear-gradient(112deg, rgba(49, 10, 15, .98), rgba(76, 21, 28, .95));
+    border: 1px solid rgba(217, 193, 161, .55);
+    box-shadow: 0 22px 50px rgba(47, 16, 18, .19);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0 0 0 auto;
+    width: 36%;
+    opacity: .22;
+    background: repeating-linear-gradient(90deg, transparent 0 42px, rgba(242, 221, 193, .16) 43px 45px);
+    mask-image: linear-gradient(90deg, transparent, #000);
+}
+
+.hero h2 {
+    max-width: 18ch;
+    color: #fff7eb;
+    font-size: clamp(2.35rem, 5vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -.025em;
+}
+
+.hero .knapp {
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: .82rem;
+}
+
+section > h2 {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+section > h2::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 1px;
+    margin-top: .7rem;
+    background: #b99a78;
+}
+
+.polaroid-ram {
+    border: 1px solid #d6c4ae;
+    border-radius: 2px;
+    padding: .65rem .65rem 1rem;
+    transform: rotate(-1deg);
+    box-shadow: 0 14px 30px rgba(49, 24, 19, .15);
+}
+
+.polaroid-ram img {
+    border: 0;
+    border-radius: 0;
+}
+
+.kompetens-kort,
+.erfarenhet-kort,
+.utbildning-kort,
+.kontakt-form,
+.kontakt-info {
+    background: rgba(251, 247, 240, .88);
+    border: 1px solid #ddcdbb;
+    border-radius: 3px;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+}
+
+.kompetens-kort,
+.erfarenhet-kort,
+.utbildning-kort {
+    padding: 1.8rem;
+}
+
+.kompetens-ikon {
+    color: #f8efe3;
+    background: #4e1726;
+    border-radius: 50%;
+}
+
+.erfarenhet-kort::before,
+.utbildning-kort::before {
+    height: 3px;
+    background: #b99a78;
+}
+
+.knapp {
+    border-radius: 3px;
+}
+
+footer {
+    color: #f4e9dc;
+    background: #3c1016;
+    border-top: 3px solid #b99a78;
+}
+
+body.morkt {
+    --yta: #170d11;
+    --yta-2: #211319;
+    --yta-kort: #2a1820;
+    --primar: #f2cad0;
+    --primar-hover: #fff;
+    --accent: #d8c2a7;
+    --accent-hover: #e5d4be;
+    --accent-text: #170d11;
+    --kant: #3d232e;
+    --skugga: 0 10px 25px rgba(0, 0, 0, .45);
+}
+
+body.morkt .hero {
+    background: linear-gradient(112deg, #200b10, #451721);
+}
+
+body.morkt .kompetens-kort,
+body.morkt .erfarenhet-kort,
+body.morkt .utbildning-kort,
+body.morkt .kontakt-form,
+body.morkt .kontakt-info {
+    background: var(--yta-kort);
+    border-color: var(--kant);
+}
+
+@media (max-width: 47.99rem) {
+    .sidhuvud-innehall {
+        align-items: flex-start;
+    }
+
+    .sidhuvud h1 {
+        font-size: 1.8rem;
+    }
+
+    nav a {
+        padding: .35rem .5rem;
+        font-size: .76rem;
+    }
+
+    .hero {
+        margin-top: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+    }
+}
+
+/* Endast rubrikfärgen ändras i mörkt läge. */
+body.morkt :is(h1, h2, h3, h4, h5, h6) {
+    color: #f4e9dc;
+}
+
+.hero .knapp {
+    background-color: #f4e9dc;
+    color: #48151c;
+}
+
+.hero .knapp:hover {
+    background-color: #e8d7c2;
+    color: #48151c;
+}
+
+.om-extra-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.om-extra-kort {
+    min-height: 100%;
+    padding: 1.4rem 1.35rem;
+    background: rgba(251, 247, 240, .88);
+    border: 1px solid #ddcdbb;
+    border-top: 4px solid #48151c;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+}
+
+.om-extra-etikett {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    margin-bottom: 1rem;
+}
+
+.om-extra-nummer {
+    color: #98785d;
+    font-family: var(--typsnitt-rubrik);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.om-extra-tag {
+    padding: .35rem .75rem;
+    color: #4a3930;
+    background: #e9ddce;
+    border-radius: 999px;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.om-extra-kort h4 {
+    margin: 0 0 .85rem;
+    color: #48151c;
+    font-family: var(--typsnitt-rubrik);
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.om-extra-kort ul {
+    display: grid;
+    gap: .45rem;
+    margin: 0;
+    padding-left: 1.15rem;
+}
+
+.om-extra-kort li {
+    padding-left: .15rem;
+    color: var(--text-dampad);
+}
+
+.om-extra-kort li::marker {
+    color: #98785d;
+}
+
+@media (min-width: 40rem) {
+    .om-extra-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+body.morkt .om-extra-kort {
+    background: var(--yta-kort);
+    border-color: var(--kant);
+    border-top-color: #b99a78;
+}
+
+body.morkt .om-extra-tag {
+    color: #f4e9dc;
+    background: #49323a;
+}
+
+body.morkt .om-extra-kort h4 {
+    color: #f4e9dc;
+}
+
+/* Kompaktare faktarutor så innehållet bättre följer profilbildens höjd. */
+.om-extra-grid {
+    gap: .75rem;
+    margin-top: 1.1rem;
+}
+
+.om-extra-kort {
+    padding: .9rem 1rem;
+}
+
+.om-extra-etikett {
+    margin-bottom: .55rem;
+}
+
+.om-extra-tag {
+    padding: .25rem .6rem;
+    font-size: .62rem;
+}
+
+.om-extra-kort h4 {
+    margin-bottom: .55rem;
+    font-size: 1.2rem;
+}
+
+.om-extra-kort ul {
+    gap: .2rem .7rem;
+}
+
+.om-extra-kort li {
+    font-size: .88rem;
+    line-height: 1.35;
+}
+
+.om-extra-kort:first-child ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.polaroid-ram {
+    transform: none;
+}
+
+/* Gemensamt utseende för innehålls- och kontaktboxarna. */
+.kort,
+.kompetens-kort,
+.erfarenhet-kort,
+.utbildning-kort,
+.kontakt-form,
+.kontakt-info,
+.om-extra-kort {
+    background: #fbf7f0;
+    border: 1px solid #ddcdbb;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+}
+
+.erfarenhet-kort::before,
+.utbildning-kort::before {
+    display: none;
+}
+
+body.morkt .kort,
+body.morkt .kompetens-kort,
+body.morkt .erfarenhet-kort,
+body.morkt .utbildning-kort,
+body.morkt .kontakt-form,
+body.morkt .kontakt-info,
+body.morkt .om-extra-kort {
+    background: var(--yta-kort);
+    border: 1px solid var(--kant);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+}
+
+.kort,
+.kompetens-kort,
+.erfarenhet-kort,
+.utbildning-kort,
+.kontakt-form,
+.kontakt-info,
+.om-extra-kort {
+    border-color: #48151c;
+}
+
+body:not(.morkt) {
+    --yta: #faf0e6;
+    background-color: #faf0e6;
+}
+
