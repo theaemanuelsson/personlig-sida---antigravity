@@ -1090,15 +1090,21 @@ section {
     isolation: isolate;
     margin: 2rem 0 1rem;
     padding: clamp(3rem, 8vw, 7rem) clamp(1.5rem, 7vw, 6rem);
+    min-height: clamp(32rem, 70vh, 52rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     color: #f8efe3;
-    background: linear-gradient(112deg, rgba(49, 10, 15, .98), rgba(76, 21, 28, .95));
+    background: #48151c;
     border: 1px solid rgba(217, 193, 161, .55);
     box-shadow: 0 22px 50px rgba(47, 16, 18, .19);
+    text-align: center;
 }
 
 .hero::after {
-    content: "";
+    content: none;
     position: absolute;
     z-index: -1;
     inset: 0 0 0 auto;
@@ -1110,6 +1116,8 @@ section {
 
 .hero h2 {
     max-width: 18ch;
+    margin-right: auto;
+    margin-left: auto;
     color: #fff7eb;
     font-size: clamp(2.35rem, 5vw, 4.5rem);
     line-height: 1.02;
@@ -1203,8 +1211,176 @@ body.morkt {
 }
 
 body.morkt .hero {
-    background: linear-gradient(112deg, #200b10, #451721);
+    background: #48151c;
 }
+
+body,
+body * {
+    font-family: "Times New Roman", Times, serif !important;
+}
+
+/* Utbildningar visas som en vertikal tidslinje på alla skärmstorlekar. */
+.utbildning-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.1rem;
+    margin-left: .55rem;
+    padding-left: 1.6rem;
+    border-left: 2px solid #b99a78;
+}
+
+.utbildning-kort {
+    overflow: visible;
+}
+
+.utbildning-kort::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1.6rem;
+    left: -2.08rem;
+    width: .9rem;
+    height: .9rem;
+    border: 3px solid #faf0e6;
+    border-radius: 50%;
+    background: #48151c;
+    box-shadow: 0 0 0 1px #b99a78;
+}
+
+body.morkt .utbildning-grid {
+    border-left-color: #b99a78;
+}
+
+body.morkt .utbildning-kort::before {
+    border-color: var(--yta);
+    background: #d9c1a1;
+    box-shadow: 0 0 0 1px #b99a78;
+}
+
+/* Två polaroidramar för monogram och profilfoto. */
+.polaroid-par {
+    display: flex;
+    flex: 0 0 min(380px, 47%);
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: min(380px, 47%);
+    min-height: 280px;
+    margin-bottom: var(--luft);
+}
+
+.polaroid-par .polaroid-ram {
+    flex: 0 0 calc(50% - .45rem);
+    width: calc(50% - .45rem);
+    max-width: none;
+    margin: 0;
+    padding: .65rem .65rem 1rem;
+    border: 1px solid #d6c4ae;
+    border-radius: 2px;
+    background: #fbf7f0;
+    box-shadow: 0 14px 30px rgba(49, 24, 19, .15);
+    transform: none;
+}
+
+.polaroid-initialer {
+    position: relative;
+    z-index: 1;
+    transform: rotate(-8deg) translateY(6px);
+}
+
+.polaroid-profil {
+    position: relative;
+    z-index: 2;
+    margin-left: -6% !important;
+    transform: rotate(8deg) translateY(-5px);
+}
+
+.polaroid-par .polaroid-profil img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 0;
+    border-radius: 0;
+}
+
+.polaroid-monogram {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #faf0e6;
+    color: #48151c;
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: clamp(3rem, 6vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.polaroid-monogram i {
+    position: absolute;
+    top: -12%;
+    left: 50%;
+    width: 3px;
+    height: 124%;
+    background: currentColor;
+    transform: rotate(24deg);
+}
+
+body.morkt .polaroid-par .polaroid-ram {
+    background: #2a1820;
+    border-color: var(--kant);
+}
+
+@media (max-width: 47.99rem) {
+    .polaroid-par {
+        flex: 0 0 auto;
+        width: min(100%, 380px);
+        min-height: 260px;
+    }
+}
+
+/* Profilfotot stort med det mindre monogrammet ovanpå nere till höger. */
+.polaroid-par {
+    position: relative;
+    display: block;
+    flex: 0 0 min(380px, 47%);
+    width: min(380px, 47%);
+    min-height: 355px;
+    margin-bottom: var(--luft);
+}
+
+.polaroid-par .polaroid-profil {
+    position: absolute;
+    top: .5rem;
+    left: 0;
+    z-index: 1;
+    width: 82%;
+    margin: 0 !important;
+    transform: none;
+}
+
+.polaroid-par .polaroid-initialer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 40%;
+    transform: rotate(7deg);
+}
+
+@media (max-width: 47.99rem) {
+    .polaroid-par {
+        flex: 0 0 auto;
+        width: min(100%, 380px);
+        min-height: 300px;
+    }
+}
+
+
 
 body.morkt .kompetens-kort,
 body.morkt .erfarenhet-kort,
