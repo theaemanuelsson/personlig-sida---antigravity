@@ -1343,6 +1343,323 @@ body.morkt .polaroid-par .polaroid-ram {
     }
 }
 
+/* Erfarenheter som en luftig lista med avdelare. */
+.erfarenheter-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1.5rem;
+    border-top: 1px solid #48151c;
+    border-bottom: 1px solid #48151c;
+}
+
+.erfarenhet-kort {
+    display: grid;
+    grid-template-columns: minmax(13rem, .8fr) minmax(0, 1.6fr);
+    align-items: start;
+    gap: 2rem;
+    padding: 1.5rem .5rem;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddcdbb;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+}
+
+.erfarenhet-kort:last-child {
+    border-bottom: 0;
+}
+
+.erfarenhet-kort:hover {
+    border-color: #ddcdbb;
+    box-shadow: none;
+    transform: none;
+}
+
+.erfarenhet-kort h4,
+.erfarenhet-kort p {
+    margin: 0;
+}
+
+body.morkt .erfarenheter-grid {
+    border-color: #b99a78;
+}
+
+body.morkt .erfarenhet-kort {
+    background: transparent;
+    border-color: #3d232e;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.morkt .erfarenhet-kort:last-child {
+    border-bottom: 0;
+}
+
+body.morkt .erfarenhet-kort:hover {
+    border-color: #3d232e;
+    box-shadow: none;
+}
+
+@media (max-width: 47.99rem) {
+    .erfarenhet-kort {
+        grid-template-columns: minmax(0, 1fr);
+        gap: .6rem;
+        padding: 1.2rem .25rem;
+    }
+}
+
+/* Numrerad utformning för erfarenhetslistan. */
+.erfarenheter-grid {
+    counter-reset: erfarenhet;
+}
+
+.erfarenhet-kort {
+    grid-template-columns: 3.5rem minmax(13rem, .8fr) minmax(0, 1.6fr);
+    column-gap: 1.25rem;
+    counter-increment: erfarenhet;
+}
+
+.erfarenhet-kort::before {
+    content: counter(erfarenhet, decimal-leading-zero);
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: #98785d;
+    font-family: "Times New Roman", Times, serif !important;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: none;
+}
+
+.erfarenhet-kort h4 {
+    grid-column: 2;
+}
+
+.erfarenhet-kort p {
+    grid-column: 3;
+}
+
+body.morkt .erfarenhet-kort::before {
+    background: transparent;
+    color: #d9c1a1;
+}
+
+@media (max-width: 47.99rem) {
+    .erfarenhet-kort {
+        grid-template-columns: 2.5rem minmax(0, 1fr);
+    }
+
+    .erfarenhet-kort::before {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        font-size: 1.55rem;
+    }
+
+    .erfarenhet-kort h4,
+    .erfarenhet-kort p {
+        grid-column: 2;
+    }
+}
+
+/* Tre erfarenhetskort bredvid varandra med all text samlad i varje kort. */
+.erfarenheter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+    border: 0;
+    counter-reset: none;
+}
+
+.erfarenhet-kort {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    min-height: 100%;
+    padding: 1.5rem;
+    overflow: hidden;
+    background: #fbf7f0;
+    border: 1px solid #48151c;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+    transform: none;
+    counter-increment: none;
+}
+
+.erfarenhet-kort::before {
+    content: none;
+    display: none;
+}
+
+.erfarenhet-kort h4 {
+    padding-top: 0;
+    margin: 0 0 1rem;
+}
+
+.erfarenhet-kort p {
+    margin: 0;
+}
+
+body.morkt .erfarenhet-kort {
+    background: var(--yta-kort);
+    border-color: #48151c;
+}
+
+@media (max-width: 47.99rem) {
+    .erfarenheter-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Burgundykant runt samtliga innehållskort och profilbilder. */
+.kort,
+.kompetens-kort,
+.erfarenhet-kort,
+.utbildning-kort,
+.kontakt-form,
+.kontakt-info,
+.om-extra-kort,
+.polaroid-par .polaroid-ram {
+    border: 1px solid #48151c;
+}
+
+.polaroid-par .polaroid-profil img,
+.polaroid-monogram {
+    border: 1px solid #48151c;
+}
+
+.kontakt-form input,
+.kontakt-form textarea {
+    border-color: #48151c;
+}
+
+body.morkt .kort,
+body.morkt .kompetens-kort,
+body.morkt .erfarenhet-kort,
+body.morkt .utbildning-kort,
+body.morkt .kontakt-form,
+body.morkt .kontakt-info,
+body.morkt .om-extra-kort,
+body.morkt .polaroid-par .polaroid-ram,
+body.morkt .polaroid-par .polaroid-profil img,
+body.morkt .polaroid-monogram,
+body.morkt .kontakt-form input,
+body.morkt .kontakt-form textarea {
+    border-color: #48151c;
+}
+
+/* Sicksacklayout för erfarenheter: rubrik och beskrivning byter sida. */
+.erfarenheter-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 0;
+}
+
+.erfarenhet-kort {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 2rem;
+    min-height: 10rem;
+    padding: 2rem 1.5rem;
+    border: 1px solid #48151c;
+    border-radius: 8px;
+    background: #fbf7f0;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+}
+
+.erfarenhet-kort::before {
+    position: absolute;
+    top: 1rem;
+    right: auto;
+    bottom: auto;
+    left: 1.5rem;
+    display: block;
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: #98785d;
+    font-size: 1.8rem;
+    line-height: 1;
+    box-shadow: none;
+}
+
+.erfarenhet-kort h4,
+.erfarenhet-kort p {
+    margin: 0;
+}
+
+.erfarenhet-kort h4 {
+    grid-column: 1;
+    padding-top: 1.4rem;
+}
+
+.erfarenhet-kort p {
+    grid-column: 2;
+}
+
+.erfarenhet-kort:nth-child(even) h4 {
+    grid-column: 2;
+}
+
+.erfarenhet-kort:nth-child(even) p {
+    grid-column: 1;
+}
+
+.erfarenhet-kort:nth-child(even)::before {
+    right: 1.5rem;
+    left: auto;
+}
+
+body.morkt .erfarenhet-kort {
+    background: var(--yta-kort);
+}
+
+body.morkt .erfarenhet-kort::before {
+    background: transparent;
+    color: #d9c1a1;
+}
+
+@media (max-width: 47.99rem) {
+    .erfarenhet-kort {
+        grid-template-columns: 2.5rem minmax(0, 1fr);
+        gap: .5rem 1rem;
+        min-height: 0;
+        padding: 1.25rem;
+    }
+
+    .erfarenhet-kort::before,
+    .erfarenhet-kort:nth-child(even)::before {
+        top: 1.25rem;
+        right: auto;
+        left: 1.25rem;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        font-size: 1.4rem;
+    }
+
+    .erfarenhet-kort h4,
+    .erfarenhet-kort:nth-child(even) h4 {
+        grid-column: 2;
+        padding-top: 0;
+    }
+
+    .erfarenhet-kort p,
+    .erfarenhet-kort:nth-child(even) p {
+        grid-column: 2;
+    }
+}
+
 /* Profilfotot stort med det mindre monogrammet ovanpå nere till höger. */
 .polaroid-par {
     position: relative;
@@ -1612,5 +1929,393 @@ body.morkt .om-extra-kort {
 body:not(.morkt) {
     --yta: #faf0e6;
     background-color: #faf0e6;
+}
+
+/* Tidslinje för erfarenheter med texten samlad i varje post. */
+#Erfarenheter .erfarenheter-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 4rem;
+    row-gap: 1.75rem;
+    margin: 2rem auto 0;
+    padding: .5rem 0;
+    border: 0;
+    counter-reset: none;
+}
+
+#Erfarenheter .erfarenheter-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: #48151c;
+    transform: translateX(-50%);
+}
+
+#Erfarenheter .erfarenhet-kort {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    min-height: 100%;
+    padding: 1.5rem;
+    overflow: visible;
+    background: #fbf7f0;
+    border: 1px solid #48151c;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+    transform: none;
+    counter-increment: none;
+}
+
+#Erfarenheter .erfarenhet-kort:nth-child(odd) {
+    grid-column: 1;
+}
+
+#Erfarenheter .erfarenhet-kort:nth-child(even) {
+    grid-column: 2;
+}
+
+#Erfarenheter .erfarenhet-kort::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1.75rem;
+    left: calc(100% + 1.95rem);
+    width: .85rem;
+    height: .85rem;
+    padding: 0;
+    background: #faf0e6;
+    border: 2px solid #48151c;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #faf0e6;
+    transform: translateX(-50%);
+}
+
+#Erfarenheter .erfarenhet-kort:nth-child(even)::before {
+    left: auto;
+    right: calc(100% + 1.95rem);
+    transform: translateX(50%);
+}
+
+#Erfarenheter .erfarenhet-kort h4 {
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+#Erfarenheter .erfarenhet-kort p {
+    margin: 0;
+}
+
+body.morkt #Erfarenheter .erfarenheter-grid::before {
+    background: #c9a78a;
+}
+
+body.morkt #Erfarenheter .erfarenhet-kort::before {
+    background: var(--yta-kort);
+    border-color: #c9a78a;
+    box-shadow: 0 0 0 4px var(--yta);
+}
+
+@media (max-width: 48rem) {
+    #Erfarenheter .erfarenheter-grid {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 1.25rem;
+        margin-left: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    #Erfarenheter .erfarenheter-grid::before {
+        left: .4rem;
+        transform: none;
+    }
+
+    #Erfarenheter .erfarenhet-kort:nth-child(n) {
+        grid-column: 1;
+    }
+
+    #Erfarenheter .erfarenhet-kort:nth-child(n)::before {
+        left: -1.55rem;
+        right: auto;
+        transform: translateX(-50%);
+    }
+}
+
+/* Samla alla erfarenhetsposter på samma sida av tidslinjen. */
+@media (min-width: 48.01rem) {
+    #Erfarenheter .erfarenheter-grid {
+        grid-template-columns: minmax(0, 1fr);
+        padding-left: 2rem;
+    }
+
+    #Erfarenheter .erfarenheter-grid::before {
+        left: .4rem;
+        transform: none;
+    }
+
+    #Erfarenheter .erfarenhet-kort:nth-child(n) {
+        grid-column: 1;
+    }
+
+    #Erfarenheter .erfarenhet-kort:nth-child(n)::before {
+        left: -2rem;
+        right: auto;
+        transform: translateX(-50%);
+    }
+}
+
+/* Matcha utbildningens tidslinje med erfarenheternas lodräta linje. */
+#Utbildning .utbildning-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0 0 1rem;
+    padding: .5rem 0 .5rem 2rem;
+    border: 0;
+}
+
+#Utbildning .utbildning-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: .4rem;
+    width: 2px;
+    background: #48151c;
+}
+
+#Utbildning .utbildning-kort {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 1.5rem;
+    background: #fbf7f0;
+    border: 1px solid #48151c;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+}
+
+#Utbildning .utbildning-kort::before {
+    content: "";
+    position: absolute;
+    top: 1.75rem;
+    left: -2rem;
+    width: .85rem;
+    height: .85rem;
+    border: 2px solid #48151c;
+    border-radius: 50%;
+    background: #faf0e6;
+    box-shadow: 0 0 0 4px #faf0e6;
+    transform: translateX(-50%);
+}
+
+#Utbildning .utbildning-kort h4 {
+    margin: 0 0 .75rem;
+}
+
+#Utbildning .utbildning-kort p {
+    margin: 0;
+}
+
+body.morkt #Utbildning .utbildning-grid::before {
+    background: #c9a78a;
+}
+
+body.morkt #Utbildning .utbildning-kort::before {
+    background: var(--yta-kort);
+    border-color: #c9a78a;
+    box-shadow: 0 0 0 4px var(--yta);
+}
+
+@media (max-width: 48rem) {
+    #Utbildning .utbildning-grid {
+        margin-left: 1rem;
+        padding-left: 2rem;
+    }
+}
+
+/* Tydlig lodrät utbildningslinje med öppna, större markörer. */
+#Utbildning .utbildning-grid::before {
+    left: .4rem;
+    width: 3px;
+    background: #48151c;
+}
+
+#Utbildning .utbildning-kort::before {
+    top: 1.55rem;
+    left: -1.05rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: 3px solid #48151c;
+    background: #faf0e6;
+    box-shadow: 0 0 0 5px #faf0e6;
+    transform: translateX(-50%);
+}
+
+body.morkt #Utbildning .utbildning-grid::before {
+    background: #48151c;
+}
+
+body.morkt #Utbildning .utbildning-kort::before {
+    border-color: #48151c;
+    background: var(--yta);
+    box-shadow: 0 0 0 5px var(--yta);
+}
+
+/* Bred utbildningstidslinje med kort placerade till höger om linjen. */
+#Utbildning .utbildning-grid {
+    gap: 1.5rem;
+    margin: 2rem 0 0 1.5rem;
+    padding: .5rem 0 .5rem 3.6rem;
+}
+
+#Utbildning .utbildning-grid::before {
+    left: .4rem;
+}
+
+#Utbildning .utbildning-kort {
+    min-height: 0;
+    padding: 1.75rem 2rem;
+    border-radius: 10px;
+}
+
+#Utbildning .utbildning-kort::before {
+    left: -2.8rem;
+}
+
+#Utbildning .utbildning-kort h4 {
+    margin-bottom: 1rem;
+    color: #48151c;
+}
+
+#Utbildning .utbildning-kort p {
+    max-width: 58rem;
+    line-height: 1.6;
+}
+
+body.morkt #Utbildning .utbildning-kort h4 {
+    color: #f5e8d8;
+}
+
+@media (max-width: 48rem) {
+    #Utbildning .utbildning-grid {
+        margin-left: .75rem;
+        padding-left: 2.5rem;
+    }
+
+    #Utbildning .utbildning-kort {
+        padding: 1.25rem;
+    }
+
+    #Utbildning .utbildning-kort::before {
+        left: -1.8rem;
+    }
+}
+
+/* Samma tidslinjeutseende och mått för utbildning som för erfarenheter. */
+#Utbildning .utbildning-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0 0 1rem;
+    padding: .5rem 0 .5rem 2rem;
+    border: 0;
+}
+
+#Utbildning .utbildning-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: .4rem;
+    width: 2px;
+    background: #48151c;
+}
+
+#Utbildning .utbildning-kort {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    min-height: 100%;
+    padding: 1.5rem;
+    overflow: visible;
+    background: #fbf7f0;
+    border: 1px solid #48151c;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(53, 24, 20, .055);
+    transform: none;
+}
+
+#Utbildning .utbildning-kort::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1.75rem;
+    left: -2rem;
+    width: .85rem;
+    height: .85rem;
+    padding: 0;
+    background: #faf0e6;
+    border: 2px solid #48151c;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #faf0e6;
+    transform: translateX(-50%);
+}
+
+#Utbildning .utbildning-kort h4 {
+    margin: 0 0 1rem;
+    padding: 0;
+    color: inherit;
+}
+
+#Utbildning .utbildning-kort p {
+    max-width: none;
+    margin: 0;
+    line-height: normal;
+}
+
+body.morkt #Utbildning .utbildning-grid::before {
+    background: #c9a78a;
+}
+
+body.morkt #Utbildning .utbildning-kort {
+    background: var(--yta-kort);
+}
+
+body.morkt #Utbildning .utbildning-kort::before {
+    background: var(--yta-kort);
+    border-color: #c9a78a;
+    box-shadow: 0 0 0 4px var(--yta);
+}
+
+@media (max-width: 48rem) {
+    #Utbildning .utbildning-grid {
+        gap: 1.25rem;
+        margin-left: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    #Utbildning .utbildning-grid::before {
+        left: .4rem;
+    }
+
+    #Utbildning .utbildning-kort {
+        padding: 1.25rem;
+    }
+
+    #Utbildning .utbildning-kort::before {
+        left: -1.55rem;
+    }
 }
 
