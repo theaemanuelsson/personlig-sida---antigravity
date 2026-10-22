@@ -1270,8 +1270,8 @@ body.morkt .utbildning-kort::before {
 }
 
 .polaroid-par .polaroid-ram {
-    flex: 0 0 calc(50% - .45rem);
-    width: calc(50% - .45rem);
+    flex: 0 0 calc(44% - .45rem);
+    width: calc(44% - .45rem);
     max-width: none;
     margin: 0;
     padding: .65rem .65rem 1rem;
@@ -2132,6 +2132,49 @@ body.morkt #Utbildning .utbildning-kort::before {
     background: var(--yta-kort);
     border-color: #c9a78a;
     box-shadow: 0 0 0 4px var(--yta);
+}
+
+/* Små kort för verktyg och övriga meriter. */
+#ovriga-meriter .meriter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+#ovriga-meriter .merit-kort {
+    display: flex;
+    min-height: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid var(--kant);
+    border-left: 4px solid var(--primar);
+    border-radius: var(--radie);
+    background: var(--yta-kort);
+    box-shadow: var(--skugga);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+#ovriga-meriter .merit-kort:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(78, 23, 38, 0.12);
+}
+
+#ovriga-meriter .merit-kort h3 {
+    margin: 0;
+    color: var(--primar);
+    font-family: var(--typsnitt-brodtext);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+body.morkt #ovriga-meriter .merit-kort {
+    background: var(--yta-kort);
+}
+
+body.morkt #ovriga-meriter .merit-kort h3 {
+    color: var(--text);
 }
 
 @media (max-width: 48rem) {
