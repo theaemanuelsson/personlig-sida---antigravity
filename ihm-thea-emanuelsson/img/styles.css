@@ -1037,13 +1037,9 @@ body.morkt .form-status.framgang {
     --radie: 8px;
 }
 
-body {
-    background-image: radial-gradient(ellipse at 50% 0, rgba(255, 252, 246, .78), transparent 58%);
-}
-
 .sidhuvud {
     padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
-    background: #3c1016;
+    background: #4e1726;
     border-bottom: 3px solid #b99a78;
 }
 
@@ -1097,7 +1093,7 @@ section {
     justify-content: center;
     overflow: hidden;
     color: #f8efe3;
-    background: #48151c;
+    background: #4e1726;
     border: 1px solid rgba(217, 193, 161, .55);
     box-shadow: 0 22px 50px rgba(47, 16, 18, .19);
     text-align: center;
@@ -1193,7 +1189,7 @@ section > h2::after {
 
 footer {
     color: #f4e9dc;
-    background: #3c1016;
+    background: #4e1726;
     border-top: 3px solid #b99a78;
 }
 
@@ -1211,7 +1207,22 @@ body.morkt {
 }
 
 body.morkt .hero {
-    background: #48151c;
+    background: #faf0e6;
+    color: #4e1726;
+}
+
+body.morkt .hero h2 {
+    color: #4e1726;
+}
+
+body.morkt .hero .knapp {
+    background: #4e1726;
+    color: #fff7eb;
+}
+
+body.morkt .hero .knapp:hover {
+    background: #360f1a;
+    color: #fff7eb;
 }
 
 body,
@@ -2141,6 +2152,65 @@ body.morkt #Utbildning .utbildning-kort::before {
     gap: 1rem;
 }
 
+#ovriga-meriter .programvaror-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas: "programvaror dator";
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    margin-top: 1.75rem;
+}
+
+#ovriga-meriter .programvaror-dator {
+    grid-area: dator;
+    display: flex;
+    justify-content: center;
+    color: #4e1726;
+}
+
+body.morkt #ovriga-meriter .programvaror-dator {
+    color: #f4e6ce;
+}
+
+body.morkt #ovriga-meriter .programvaror-dator-skarm,
+body.morkt #ovriga-meriter .programvaror-dator-pekplatta {
+    fill: #000;
+}
+
+#ovriga-meriter .programvaror-dator svg {
+    display: block;
+    width: min(100%, 360px);
+    height: auto;
+    filter: drop-shadow(0 14px 16px rgba(78, 23, 38, 0.12));
+}
+
+#ovriga-meriter .meriter-grid {
+    grid-area: programvaror;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 42rem) {
+    #ovriga-meriter .programvaror-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "programvaror"
+            "dator";
+        gap: 1.25rem;
+    }
+
+    #ovriga-meriter .programvaror-dator {
+        padding: 0;
+    }
+
+    #ovriga-meriter .programvaror-dator svg {
+        width: min(82%, 300px);
+    }
+
+    #ovriga-meriter .meriter-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 #ovriga-meriter .merit-kort {
     display: flex;
     min-height: 5rem;
@@ -2375,6 +2445,34 @@ body.morkt #Utbildning .utbildning-kort::before {
     box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
 }
 
+/* Erfarenhetskorten får samma kortyta som övriga kort endast i mörkt läge. */
+body.morkt #Erfarenheter .erfarenheter-grid {
+    gap: 1rem;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+body.morkt #Erfarenheter .erfarenhet-kort {
+    background: var(--yta-kort);
+    border: 1px solid var(--kant);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+}
+
+body.morkt #Erfarenheter .erfarenhet-kort:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .28);
+}
+
+body.morkt #Erfarenheter .erfarenhet-kort h4 {
+    color: #fff;
+}
+
+body.morkt :is(h3, h4, h5, h6) {
+    color: #fff !important;
+}
+
 .om-extra-kort {
     transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
@@ -2384,4 +2482,85 @@ body.morkt #Utbildning .utbildning-kort::before {
     border-color: var(--accent);
     box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
 }
+
+body.morkt .hero {
+    background: #f4e6ce !important;
+}
+
+body.morkt .sidhuvud {
+    border-bottom: 3px solid #f4e6ce;
+}
+
+body.morkt .sidhuvud .tema-knapp,
+body.morkt .sidhuvud .tema-knapp:hover {
+    background: #f4e6ce;
+    color: #4e1726;
+    border-color: #4e1726;
+}
+
+body.morkt #om .polaroid-par .polaroid-ram {
+    background-color: #4e1726;
+    border-color: #4e1726;
+}
+
+body.morkt #om .polaroid-par .polaroid-profil img,
+body.morkt #om .polaroid-monogram {
+    border-color: #4e1726;
+}
+
+body:not(.morkt) #om .polaroid-par .polaroid-ram,
+body:not(.morkt) #om .polaroid-par .polaroid-profil img,
+body:not(.morkt) #om .polaroid-monogram {
+    border-color: #4e1726;
+}
+
+body:not(.morkt) #om .polaroid-par .polaroid-ram {
+    background-color: #4e1726;
+}
+
+body:not(.morkt) .sidhuvud :is(h1, p, a, button, span) {
+    color: #fff !important;
+}
+
+body.morkt .hero {
+    background: #4e1726 !important;
+    color: #f4e6ce;
+}
+
+body.morkt .hero h2 {
+    color: #f4e6ce;
+}
+
+body.morkt .hero .knapp,
+body.morkt .hero .knapp:hover {
+    background: #f4e6ce;
+    color: #4e1726;
+}
+
+body.morkt .sidhuvud h1,
+body.morkt .sidhuvud .roll,
+body.morkt .sidhuvud nav a,
+body.morkt .sidhuvud nav a:hover {
+    color: #f4e6ce;
+}
+
+body.morkt #om .om-text > p,
+body.morkt #om .om-extra-kort li {
+    color: #f4e6ce;
+}
+
+body.morkt .hubspot-form,
+body.morkt .hubspot-form :is(label, legend, p, span, strong, em, a, input, textarea, select, button, .hs-form-required) {
+    color: #f4e6ce !important;
+}
+
+body.morkt .hubspot-form :is(input, textarea, select)::placeholder {
+    color: #f4e6ce !important;
+    opacity: .8;
+}
+
+body.morkt :is(.kort, .kompetens-kort, .erfarenhet-kort, .utbildning-kort, .merit-kort, .om-extra-kort, .kontakt-form, .kontakt-info) {
+    background-color: #4e1726 !important;
+}
+
 
