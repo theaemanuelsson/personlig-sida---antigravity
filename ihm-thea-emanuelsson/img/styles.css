@@ -2362,3 +2362,16 @@ body.morkt #Utbildning .utbildning-kort::before {
     }
 }
 
+/* Samma mjuka lyft och skugga vid hovring som på övriga innehållskort. */
+#Erfarenheter .erfarenhet-kort,
+#Utbildning .utbildning-kort {
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+#Erfarenheter .erfarenhet-kort:hover,
+#Utbildning .utbildning-kort:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
+}
+
