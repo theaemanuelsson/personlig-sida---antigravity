@@ -2375,3 +2375,13 @@ body.morkt #Utbildning .utbildning-kort::before {
     box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
 }
 
+.om-extra-kort {
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.om-extra-kort:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 14px 30px rgba(78, 23, 38, 0.08);
+}
+
